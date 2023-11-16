@@ -1,0 +1,16 @@
+<div>
+    <div
+      style="border: solid 1px"
+      (click)="toDetails(post)"
+      *ngFor="let post of posts"
+    >
+      <img src="{{ post.image }}" />
+      <label>{{ post.name }}</label>
+    </div>
+</div>
+details
+<ng-container *ngIf="!!details">
+  <img src="{{ details.image }}" />
+  <label>{{ details.name }}</label>
+  <label>{{ details.description }}</label>
+</ng-container>
