@@ -13,13 +13,13 @@ import { HousingLocation } from '../housinglocation';
 export class HomeComponent {
   readonly baseUrl = 'https://angular.io/assets/images/tutorials/faa';
 
-  housingLocationList: HousingLocation[] = [
+   housingLocationList: HousingLocation[] = [
     {
       id: 0,
       name: 'Acme Fresh Start Housing',
       city: 'Chicago',
       state: 'IL',
-      photo: `${this.baseUrl}/bernard-hermant-CLKGGwIBTaY-unsplash.jpg`,
+      photo: `https://random.imagecdn.app/500/150`,
       availableUnits: 4,
       wifi: true,
       laundry: true
@@ -29,6 +29,7 @@ export class HomeComponent {
       name: 'A113 Transitional Housing',
       city: 'Santa Monica',
       state: 'CA',
+      
       photo: `${this.baseUrl}/brandon-griggs-wR11KBaB86U-unsplash.jpg`,
       availableUnits: 0,
       wifi: false,
