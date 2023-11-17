@@ -1,16 +1,13 @@
-<div>
-    <div
-      style="border: solid 1px"
-      (click)="toDetails(post)"
-      *ngFor="let post of posts"
-    >
-      <img src="{{ post.image }}" />
-      <label>{{ post.name }}</label>
-    </div>
-</div>
-details
-<ng-container *ngIf="!!details">
-  <img src="{{ details.image }}" />
-  <label>{{ details.name }}</label>
-  <label>{{ details.description }}</label>
-</ng-container>
+<section>
+  <form>
+    <input type="text" placeholder="Filter by city" />
+    <button class="primary" type="button">Search</button>
+  </form>
+</section>
+<section class="results">
+  <app-image-sample
+    *ngFor="let imgSample of imgSampleList"
+    [imgSample]="imgSample"
+  >
+  </app-image-sample>
+</section>

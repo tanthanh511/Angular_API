@@ -1,31 +1,58 @@
 import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { HttpClient, provideHttpClient } from '@angular/common/http';
-import { bootstrapApplication } from '@angular/platform-browser';
+import { ImgSample } from '../imgsample';
+import { ImageSampleComponent } from '../image-sample/image-sample.component';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, ImageSampleComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css',
 })
 export class HomeComponent {
-  http = inject(HttpClient);
-  constructor() {
-    this.http
-      .get(`${this.url}/posts`)
-      .subscribe((data) => (this.posts = data as any));
-  }
-  url = 'https://pinterest-clone-4j5x.onrender.com';
+  // http = inject(HttpClient);
+  // constructor() {
+  //   this.http
+  //     .get(`${this.url}/posts`)
+  //     .subscribe((data) => (this.posts = data as any));
+  // }
+  readonly url = 'https://random.imagecdn.app/500/150';
 
-  posts: any[] = [];
-  details: any;
-  toDetails(post: any) {
-    this.details = post;
-  }
+  imgSampleList : ImgSample[] = [
+    {
+      id:0,
+      img:`${this.url}`,
+      name: 'Central Creative Facilitator',
+      description: 'Quia quisquam minus id.'
+    },
+    {
+      id:2,
+      img:`${this.url}`,
+      name: 'Central Creative Facilitator',
+      description: 'Quia quisquam minus id.'
+    },
+    {
+      id:3,
+      img:`${this.url}`,
+      name: 'Central Creative Facilitator',
+      description: 'Quia quisquam minus id.'
+    },
+    {
+      id:4,
+      img:`${this.url}`,
+      name: 'Central Creative Facilitator',
+      description: 'Quia quisquam minus id.'
+    },
+    {
+      id:5,
+      img:`${this.url}`,
+      name: 'Central Creative Facilitator',
+      description: 'Quia quisquam minus id.'
+    },
+  ];
 }
 
-bootstrapApplication(HomeComponent, {
-  providers: [CommonModule, provideHttpClient()],
-});
+// bootstrapApplication(HomeComponent, {
+//   providers: [CommonModule, provideHttpClient()],
+// });
