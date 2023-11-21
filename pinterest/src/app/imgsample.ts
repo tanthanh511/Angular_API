@@ -1,6 +1,6 @@
 export interface ImgSample {
     id: number;
-    img: string;
+    image: string;
     name:string;
     description:string;
 }
