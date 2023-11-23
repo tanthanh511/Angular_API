@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ImgSample } from '../imgsample';
 import { ImageSampleComponent } from '../image-sample/image-sample.component';
@@ -12,10 +12,11 @@ import { bootstrapApplication } from '@angular/platform-browser';
   templateUrl: './home.component.html',
   styleUrl: './home.component.css',
 })
-export class HomeComponent {
+export class HomeComponent implements OnInit{
   //url: string = ""
-  imgSampleList: ImgSample[] = []
-  http = inject(HttpClient)
+  imgSampleList: ImgSample[] = [];
+ // details: ImgSample[];
+  http = inject(HttpClient);
   constructor() {
     // this.url = 'https://pinterest-clone-4j5x.onrender.com/posts';
     // ~(async() => {
@@ -23,20 +24,25 @@ export class HomeComponent {
     //   const resData = await res.json();
     //   this.imgSampleList = resData
     //   console.log(this.imgSampleList);
+  }
+
+  ngOnInit(): void{
+    this.getPostList();
+  }
+
+  public getPostList(): void {
+    this.http.get<ImgSample[]>(`${this.url}/posts`).subscribe((data) => {
+      this.imgSampleList = data as ImgSample[];
+    });
+  }
+
+  public ShowDetail(): void{
    
-    this.http
-    .get(`${this.url}/posts`)
-    .subscribe((data) => {this.imgSampleList = data as any; console.log(data)});
-}
-   // })()
-    
-  
+  }
+  // })()
   readonly url = 'https://pinterest-clone-4j5x.onrender.com';
-
-  
-
 }
 
-// bootstrapApplication(HomeComponent, {
-//   providers: [CommonModule, provideHttpClient()],
-// });
+bootstrapApplication(HomeComponent, {
+  providers: [CommonModule, provideHttpClient()],
+});
