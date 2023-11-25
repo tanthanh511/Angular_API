@@ -1,4 +1,4 @@
-export interface ImgSample {
+export interface Post {
     id: number;
     image: string;
     name:string;

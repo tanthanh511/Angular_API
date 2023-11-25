@@ -16,10 +16,9 @@ export class HomeComponent {
   housingLocationList: HousingLocation[] = [];
   housingService: HousingService = inject(HousingService);
 
-  constructor() {
-    
-  }
-  ngOnInit(): void{
+  constructor() {}
+  
+  ngOnInit(): void {
     this.housingLocationList = this.housingService.getAllHousingLocations();
   }
 }

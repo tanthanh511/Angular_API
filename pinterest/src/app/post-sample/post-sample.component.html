@@ -1,0 +1,12 @@
+<section class="listing">
+  <img
+    class="listing-img"
+    src="{{ post.image }}"
+    alt="Exterior photo of {{ post.name }}"
+  />
+  <h2 class="listing-heading">{{ post.name }}</h2>
+  <p class="listing-location">
+    {{ post.description }}
+  </p>
+  <a [routerLink]="['/details', post.id]">Learn More</a>
+</section>

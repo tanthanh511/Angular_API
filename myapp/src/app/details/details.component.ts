@@ -22,7 +22,7 @@ export class DetailsComponent {
     const housingLocation = this.housingService.getHousingLocationById(
       this.route.snapshot.params['id']
     );
-    //this.housingLocation = housingLocation;
+    this.housingLocation = housingLocation;
   }
 
   // route: ActivatedRoute = inject(ActivatedRoute);
