@@ -5,7 +5,6 @@ import { ActivatedRoute } from '@angular/router';
 import { PostService } from '../post.service';
 
 @Component({
-  selector: 'app-details',
   standalone: true,
   imports: [CommonModule],
   templateUrl: './details.component.html',

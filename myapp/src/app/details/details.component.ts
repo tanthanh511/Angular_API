@@ -5,7 +5,7 @@ import { HousingService } from '../housing.service';
 import { HousingLocation } from '../housinglocation';
 
 @Component({
-  selector: 'app-details',
+  // selector: 'app-details',
   standalone: true,
   imports: [CommonModule],
   templateUrl: './details.component.html',
@@ -19,18 +19,12 @@ export class DetailsComponent {
   constructor() {}
 
   ngOnInit(): void {
+   
     const housingLocation = this.housingService.getHousingLocationById(
       this.route.snapshot.params['id']
     );
     this.housingLocation = housingLocation;
   }
 
-  // route: ActivatedRoute = inject(ActivatedRoute);
-  // housingService = inject(HousingService);
-  // housingLocation: HousingLocation | undefined;
 
-  // constructor() {
-  //   const housingLocationId = Number(this.route.snapshot.params['id']);
-  //   this.housingLocation = this.housingService.getHousingLocationById(housingLocationId);
-  // }
 }

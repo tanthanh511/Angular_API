@@ -4,9 +4,9 @@
     <button class="primary" type="button">Search</button>
   </form>
 </section>
-<section class="results">
+<section class="results" *ngIf="posts$ | async">
   <app-post-sample
-    *ngFor="let post of postList"
+    *ngFor="let post of posts$ | async"
     [post]="post" 
   >
   </app-post-sample>

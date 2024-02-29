@@ -25,7 +25,6 @@ export class HousingService {
       name: 'A113 Transitional Housing',
       city: 'Santa Monica',
       state: 'CA',
-      
       photo: `${this.baseUrl}/brandon-griggs-wR11KBaB86U-unsplash.jpg`,
       availableUnits: 0,
       wifi: false,

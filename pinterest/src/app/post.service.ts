@@ -10,18 +10,28 @@ export class PostService {
   postList: Post[] = [];
   http = inject(HttpClient);
 
-  ngOnInit(): void {
-    this.getPostList();
-  }
+  // ngOnInit(): void {
+  //   this.http.get<Post[]>(`${this.url}/posts`).subscribe((data) => {
+  //     this.postList = data as Post[];
+  //   });
+  //   // this.getPostList();
+  // }
 
-  getPostList() {
-    this.http.get<Post[]>(`${this.url}/posts`).subscribe((data) => {
+  // getPostList() {
+  //   this.http.get<Post[]>(`${this.url}/posts`).subscribe((data) => {
+  //     this.postList = data as Post[];
+  //   });
+    
+  // }
+
+  getAllPost() {
+    return this.http.get<Post[]>(`${this.url}/posts`).subscribe((data) => {
       this.postList = data as Post[];
     });
   }
 
-  getAllPost(): Post[] {
-    return this.postList;
+  getAllPostObs(){
+    return this.http.get<Post[]>(`${this.url}/posts`)
   }
 
   getPostById(id: number): Post | undefined {
@@ -30,3 +40,5 @@ export class PostService {
   
   constructor() {}
 }
+
+
